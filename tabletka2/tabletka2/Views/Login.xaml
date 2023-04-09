@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="tabletka2.Views.Login"
+             xmlns:border="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:effects="clr-namespace:tabletka2.Effects"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <BoxView CornerRadius="0, 0, 52, 52" Grid.RowSpan="5">
+                <BoxView.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#6D44FF"/>
+                        <GradientStop Color="#33C7B5"/>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView >
+            <border:PancakeView BackgroundColor="Transparent" CornerRadius="52" IsClippedToBounds="True" Margin="55,15,55,0" Grid.RowSpan="2">
+                <border:PancakeView.Border>
+                    <border:Border Color="White" Thickness="4" />
+                </border:PancakeView.Border>
+                <Grid>
+                    <Label Grid.Row="0" TextColor="White" FontSize="32" FontFamily="ZametkaParletter.ttf" Text="Таблетка" Margin="0,0,0,15" HorizontalOptions="Center" VerticalOptions="End"/>
+                    <Image Grid.Row="1" Source="iconapp.png" HeightRequest="100" WidthRequest="100" VerticalOptions="Start"/>
+                </Grid>
+            </border:PancakeView>
+            <Frame CornerRadius="20" BorderColor="Black" Padding="8" VerticalOptions="CenterAndExpand"  BackgroundColor="White" Margin="55,35,55,0" Grid.Row="2" IsClippedToBounds="True">
+                <Grid ColumnSpacing="0" RowSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Entry x:Name="Username" FontSize="16" FontFamily="SegoeUI.ttf" HeightRequest="40" BackgroundColor="White" Margin="0" Grid.Column="0" Placeholder="Логин" VerticalTextAlignment="Center">
+                        <Entry.Effects>
+                            <effects:PlainEntry/>
+                        </Entry.Effects>
+                    </Entry>
+                    <Image Source="userprofile.png"  Grid.Column="1"  HeightRequest="30" WidthRequest="30" Margin="0,0,5,0" HorizontalOptions="End"/>
+                </Grid>
+            </Frame>
+
+            <Frame CornerRadius="20" Padding="8" BorderColor="Black" VerticalOptions="CenterAndExpand"  BackgroundColor="White" Margin="55,10,55,0" Grid.Row="3" IsClippedToBounds="True">
+                <Grid ColumnSpacing="0" RowSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Entry x:Name="Userpassword" FontSize="16" FontFamily="SegoeUI.ttf" IsPassword="True" HeightRequest="30" BackgroundColor="White" Margin="0" Grid.Column="0" Placeholder="Пароль" VerticalTextAlignment="Center">
+                        <Entry.Effects>
+                            <effects:PlainEntry/>
+                        </Entry.Effects>
+                    </Entry>
+                    <Image Source="padlock.png"  Grid.Column="1"  HeightRequest="40" WidthRequest="30" Margin="0,0,5,0" HorizontalOptions="End"/>
+                </Grid>
+            </Frame>
+
+            <Button Grid.Row="4" FontFamily="SegoeUI.ttf" Margin="0,0,0,7" Clicked="Button_Clicked" HeightRequest="45"  VerticalOptions="CenterAndExpand" FontSize="16" FontAttributes="Bold" CornerRadius="20" HorizontalOptions="CenterAndExpand"  BorderColor="White" BorderWidth="1" Text="    Войти    ">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#533AEF" Offset="0.1"/>
+                        <GradientStop Color="#F59797" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Grid Grid.Row="5">
+                <Grid>
+                    <Label  Grid.Row="0" FontFamily="SegoeUI.ttf"  TextColor="#A39898" FontSize="20" Text="Нет аккаунта?" HorizontalOptions="Center"  Margin="0,30,0,0" VerticalOptions="Start"/>
+                    <Label TextDecorations="Underline" Grid.Row="1" FontFamily="SegoeUI.ttf"  TextColor="#626060" FontSize="20" Text="Создай прямо сейчас!" Margin="0,10,0,0" HorizontalOptions="Center" VerticalOptions="Start">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label  Grid.Row="0" FontAttributes="Bold" Opacity="0.2" FontFamily="SegoeUI.ttf"  TextColor="#A39898" FontSize="20" Text="Нет аккаунта?" HorizontalOptions="Center"  Margin="3,32,0,0" VerticalOptions="Start"/>
+                    <Label Opacity="0.2" FontAttributes="Bold" TextDecorations="Underline" Grid.Row="1" FontFamily="SegoeUI.ttf"  TextColor="#626060" FontSize="20" Text="Создай прямо сейчас!" HorizontalOptions="Center" Margin="3,12,0,0" VerticalOptions="Start">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="tabletka2.Views.Help"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <BoxView CornerRadius="0, 0, 52, 52" Grid.Row="0" Grid.RowSpan="2">
+                <BoxView.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#6D44FF"/>
+                        <GradientStop Color="#33C7B5"/>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView >
+            <Label Grid.Row="0" Grid.RowSpan="2" TextColor="White" FontSize="26" VerticalOptions="Center" FontFamily="ZametkaParletter.ttf" Text="Частые вопросы"  HorizontalOptions="Center"/>
+            <CollectionView   Grid.Row="2" Grid.RowSpan="8" BackgroundColor="Transparent"  HorizontalOptions="Center"
+                                            VerticalOptions="Center" x:Name="collectionforkelp">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" 
+                                                       ItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Frame CornerRadius="20"  Padding="8" BorderColor="Black" VerticalOptions="Start"  BackgroundColor="#ebebeb" Margin="55,10,55,0"  IsClippedToBounds="True">
+                                <Grid ColumnSpacing="0" RowSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button BackgroundColor="#ebebeb" Clicked="forwho_Clicked" InputTransparent="False" TextTransform="None" Text="{Binding Name}"  FontFamily="SegoeUI.ttf" TextColor="Black"  FontSize="16" FontAttributes="Bold" HorizontalOptions="Fill" VerticalOptions="Fill"/>
+                                    <Image Source="{Binding photo}" Grid.Column="1"  HeightRequest="37" WidthRequest="37" Margin="0,0,5,0" HorizontalOptions="End"/>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

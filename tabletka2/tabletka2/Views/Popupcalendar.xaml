@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<rg:PopupPage
+    x:Class="tabletka2.Views.Popupcalendar"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:rg="http://rotorgames.com"
+    HasSystemPadding="False">
+    <rg:PopupPage.Animation>
+        <rg:ScaleAnimation
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8" />
+    </rg:PopupPage.Animation>
+        <Frame Margin="20" HorizontalOptions="Center" VerticalOptions="Start" CornerRadius="20" >
+        <Frame.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#00a2f5" Offset="0.1"/>
+                <GradientStop Color="#0c68f5" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Frame.Background>
+        <StackLayout BackgroundColor="Transparent">
+            <Grid RowSpacing="1" ColumnDefinitions="Auto,Auto,*,*">
+                <Entry Placeholder="Название"
+                       PlaceholderColor="White"
+                   TextColor="White"
+                   x:Name="Name_of_pill"
+                   Grid.Column="0"
+                   Grid.Row="0"
+                   FontSize="18"
+                   HorizontalOptions="Start"
+                   Text="{Binding Name_of_pill}"/>
+                <Entry Placeholder="Количество дней приёма"
+                       PlaceholderColor="White"
+                   TextColor="White"
+                   x:Name="Days_of_Take"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="3"
+                   Keyboard="Numeric"
+                   Grid.Row="1"
+                   FontSize="18"
+                   HorizontalOptions="StartAndExpand"
+                   Text="{Binding days}"/>
+                <ImageButton
+                        InputTransparent="false"
+                        Source="timer.png"
+                        Clicked="AddnewTime_Clicked"
+                        HeightRequest="35"
+                        BackgroundColor="Transparent"
+                        CornerRadius="60"
+                        HorizontalOptions="Center"
+                        Grid.Column="1" Grid.Row="0"
+                        WidthRequest="35"/>
+                <Label Text="Время:" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" FontSize="18" Grid.Column="2" Grid.Row="0" TextColor="White" BackgroundColor="Transparent"/>
+                <TimePicker IsVisible="false"  HorizontalOptions="Center" PropertyChanged="timePicker_PropertyChanged" Grid.Column="1" Time="00:00" Grid.Row="0" x:Name="timePicker" Format="HH:mm" TextColor="White" BackgroundColor="Transparent"/>
+                <ListView SeparatorColor="White"  ItemSelected="collectionviewfortime_ItemSelected" HorizontalOptions="Fill" VerticalOptions="Fill" x:Name="collectionviewfortime" Grid.RowSpan="2" Grid.Column="3" Grid.Row="0" />
+            </Grid>
+            <Entry Placeholder="Доза"
+                    x:Name="Measure"
+                   PlaceholderColor="White"
+                    TextColor="White"
+                   FontSize="18"
+                  Text="{Binding Measure}"/>
+            <Entry Placeholder="Описание"
+                    x:Name="Description"
+                    TextColor="White"
+                   FontSize="18"
+                   PlaceholderColor="White"
+                  Text="{Binding Description}"/>
+            <Grid ColumnDefinitions="Auto,Auto">
+                <Button Text="Сохранить"
+                        BackgroundColor="White"
+                        TextColor="#0c68f5"
+                        CornerRadius="15"
+                        HorizontalOptions="StartAndExpand"
+                        Clicked="SaveButton_Clicked"/>
+                <Button Grid.Column="2"
+                        Text="Удалить"
+                        BackgroundColor="White"
+                        TextColor="#0c68f5"
+                        CornerRadius="15"
+                        HorizontalOptions="EndAndExpand"
+                        Clicked="DeleteButton_Clicked"/>
+                
+            </Grid>
+        </StackLayout>
+    </Frame>
+</rg:PopupPage>
+    

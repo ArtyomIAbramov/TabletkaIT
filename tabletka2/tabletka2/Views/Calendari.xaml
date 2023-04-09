@@ -1,0 +1,568 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="tabletka2.Views.Calendari"
+             xmlns:effects="clr-namespace:tabletka2.Effects"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ControlTemplate
+		        x:Key="TabItemTemplate">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Image
+				        VerticalOptions="Center"
+				        HorizontalOptions="Center"
+				        WidthRequest="45"
+				        HeightRequest="45"
+				        Source="{TemplateBinding CurrentIcon}"/>
+                </Grid>
+            </ControlTemplate>
+
+            <ControlTemplate
+                x:Key="FabTabItemTemplate">
+                <Grid>
+                    <ImageButton
+                        InputTransparent="false"
+                        Source="{TemplateBinding CurrentIcon}"
+                        Padding="10"
+                        Clicked="AddnewNote_Clicked"
+                        HorizontalOptions="Center"
+                        BackgroundColor="White"
+                        BorderColor="#0c68f5" 
+                        BorderWidth="2"
+                        HeightRequest="62"
+                        WidthRequest="62"
+                        CornerRadius="60"
+                        Margin="6">
+                    </ImageButton>
+                </Grid>
+            </ControlTemplate>
+            <Style
+		        x:Key="CustomTabStyle"
+		        TargetType="xct:TabView">
+                <Setter
+			        Property="IsTabTransitionEnabled"
+			        Value="True" />
+                <Setter
+			        Property="TabStripHeight"
+			        Value="58" />
+                <Setter
+			        Property="TabStripPlacement"
+			        Value="Bottom" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <xct:TabView   IsSwipeEnabled="False"
+                Style="{StaticResource CustomTabStyle}">
+                <xct:TabView.TabStripBackgroundView>
+                    <BoxView CornerRadius="36, 36, 0, 0">
+                        <BoxView.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#00a2f5" Offset="0.1"/>
+                                <GradientStop Color="#0c68f5" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </BoxView.Background>
+                    </BoxView>
+                </xct:TabView.TabStripBackgroundView>
+                <xct:TabViewItem
+                    Icon="user.png"
+                    ControlTemplate="{StaticResource TabItemTemplate}">
+                    <Frame>
+                        <Frame.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#00a2f5" Offset="0.1"/>
+                                <GradientStop Color="#0c68f5" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <Grid RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <BoxView Grid.Row="1" Grid.RowSpan="7" BackgroundColor="white"/>
+                            <Grid Grid.Row="0" ColumnSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <BoxView Grid.Row="1" Grid.Column="0" BackgroundColor="white" CornerRadius="60,0,0,0"/>
+                                <ImageButton Grid.Row="1" Margin="0,10,0,0" Clicked="Help_Clicked" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"  HeightRequest="32" WidthRequest="32"  Grid.Column="0" BackgroundColor="Transparent"  Source="question.png"/>
+                                <BoxView Grid.Row="1" Grid.Column="2"  BackgroundColor="white" CornerRadius="0,60,0,0"/>
+                                <ImageButton Grid.Row="1" Margin="0,10,0,0" Clicked="pillssearch_Clicked" HorizontalOptions="CenterAndExpand"  HeightRequest="40" WidthRequest="40"  Grid.Column="2" BackgroundColor="Transparent"  Source="search.png"/>
+                                <BoxView Grid.Row="1" Grid.Column="1" BackgroundColor="white"/>
+                                <BoxView Grid.Row="0" BackgroundColor="Transparent"/>
+                            </Grid>
+                            <ImageButton Grid.Row="0" 
+                                            BackgroundColor="White"
+                                            HeightRequest="102"
+                                            Aspect="AspectFill"
+                                            IsEnabled="False"
+                                            WidthRequest="102"
+                                            CornerRadius="80" Clicked="PickPhoto" x:Name="YourPhoto"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center">
+                            </ImageButton>
+
+                            <Entry x:Name="EntryName" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="1" Margin="0,10,0,0" Placeholder="Ваше имя" PlaceholderColor="Black" FontFamily="SegoeUI.ttf"  FontSize="25" FontAttributes="Bold" HorizontalOptions="Center">
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                            </Entry>
+                            <Grid Grid.Row="2" Margin="0,5,0,0" ColumnSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Row="0" Grid.Column="1" HeightRequest="20" WidthRequest="20"  Source="location.png" HorizontalOptions="Center"/>
+                                <Entry x:Name="EntryCity"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="2"   Placeholder="Ваш город" PlaceholderColor="Black" FontFamily="SegoeUI.ttf"  FontSize="20" FontAttributes="Bold" HorizontalOptions="Center">
+                                <Entry.Effects>
+                                    <effects:PlainEntry/>
+                                </Entry.Effects>
+                                </Entry>
+                            </Grid>
+                            <BoxView Margin="0,10,0,0" Grid.Row="3"  Color="Black" HeightRequest="1" VerticalOptions="Center"/>
+                            <Label Grid.Row="3" Margin="0,10,0,0" BackgroundColor="White" Text="Данные" TextColor="Black" FontFamily="SegoeUI.ttf"  FontSize="16" FontAttributes="Bold" HorizontalOptions="Center"/>
+                            <Grid Grid.Row="4" Padding="8" Margin="0,10,0,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <ImageButton BackgroundColor="Transparent" Source="calendar.png" HeightRequest="36" WidthRequest="36" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0"/>
+                                <Entry x:Name="EntryBirhtday"  VerticalTextAlignment="Center" Grid.Row="1" Grid.Column="0" Placeholder="Дата рожд." PlaceholderColor="Black" FontFamily="SegoeUI.ttf"  FontSize="14" HorizontalTextAlignment="Center" HorizontalOptions="Center">
+                                    <Entry.Effects>
+                                        <effects:PlainEntry/>
+                                    </Entry.Effects>
+                                </Entry>
+                                <ImageButton BackgroundColor="Transparent"  Source="height.png" HeightRequest="36" WidthRequest="36" Grid.Row="0" Grid.Column="1"/>
+                                <Entry x:Name="EntryHeight" Keyboard="Numeric"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="1" Placeholder="Рост" PlaceholderColor="Black" FontFamily="SegoeUI.ttf"  FontSize="14" HorizontalOptions="Center">
+                                    <Entry.Effects>
+                                        <effects:PlainEntry/>
+                                    </Entry.Effects>
+                                </Entry>
+                                <ImageButton BackgroundColor="Transparent"  Source="scale.png" HeightRequest="36" WidthRequest="36" Grid.Row="0" Grid.Column="2"/>
+                                <Entry x:Name="EntryWidht"  Keyboard="Numeric" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="2" Placeholder="Вес" PlaceholderColor="Black" FontFamily="SegoeUI.ttf"  FontSize="14" HorizontalOptions="Center">
+                                    <Entry.Effects>
+                                        <effects:PlainEntry/>
+                                    </Entry.Effects>
+                                </Entry>
+                                <ImageButton BackgroundColor="Transparent"  Source="blood.png" HeightRequest="36" WidthRequest="36" Grid.Row="0" Grid.Column="3"/>
+                                <Entry x:Name="EntryBlood"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="3" Placeholder="Гр. крови" PlaceholderColor="Black" FontFamily="SegoeUI.ttf"  FontSize="14" HorizontalOptions="Center">
+                                    <Entry.Effects>
+                                        <effects:PlainEntry/>
+                                    </Entry.Effects>
+                                </Entry>
+                            </Grid>
+                            <CollectionView BackgroundColor="Transparent" HeightRequest="130"   Grid.Row="5" Grid.RowSpan="2" x:Name="collectionviewfordoctors"
+                                            SelectionMode="Single"
+                                            SelectionChanged="collectionviewfordoctors_SelectionChanged">
+                                <CollectionView.ItemsLayout>
+                                    <LinearItemsLayout Orientation="Horizontal" 
+                                                       ItemSpacing="10"/>
+                                </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid WidthRequest="130"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HeightRequest="130" RowSpacing="0" xct:ShadowEffect.Color="Black" xct:ShadowEffect.OffsetX="3" xct:ShadowEffect.OffsetY="3" xct:ShadowEffect.Opacity="0.4" xct:ShadowEffect.Radius="4">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Grid.Row="0"
+                                                   Grid.Column="0"
+                                                   Source="doctor.png"
+                                                   Margin="10,10,0,0"
+                                                   HeightRequest="50"
+                                                   WidthRequest="50"
+                                                   HorizontalOptions="Center" VerticalOptions="Center"
+                                                   BackgroundColor="Transparent"/>
+                                            <Label Text="{Binding Name_of_doctor}"
+                                                   FontSize="19"
+                                                   MaxLines="1"
+                                                   TextColor="#fbb03b"
+                                                   FontAttributes="Bold"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center"
+                                                   Grid.ColumnSpan="2"
+                                                   Grid.Row="1" />
+                                            <Label Text="{Binding Meeting_day}" 
+                                                   FontSize="15"
+                                                   TextColor="Black"
+                                                   Grid.Row="2"
+                                                   Grid.ColumnSpan="2"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center"/>
+                                            <Label Text="{Binding Meeting_time}" 
+                                                   FontSize="15"
+                                                   TextColor="Black"
+                                                   Grid.Row="0"
+                                                   Grid.Column="1"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                            <ImageButton Grid.Row="7"
+                        BorderColor="#0c68f5" 
+                        BorderWidth="2"
+                        BackgroundColor="Transparent"
+                        Padding="10"
+                        HeightRequest="52"
+                        WidthRequest="52"
+                        Source="plusdoctor.png"
+                        CornerRadius="60" InputTransparent="false" Clicked="Newdoctor" VerticalOptions="CenterAndExpand" HorizontalOptions="End" Margin="0,0,10,35"/>
+                            <ImageButton Grid.Row="7"
+                        BorderColor="#0c68f5" 
+                        BorderWidth="2"
+                        BackgroundColor="Transparent"
+                        Padding="10"
+                        x:Name="Changeprofilephoto"
+                        HeightRequest="52"
+                        WidthRequest="52"
+                        Source="note.png"
+                        CornerRadius="60" InputTransparent="false" Clicked="Changeprofile" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="10,0,0,35"/>
+                        </Grid>
+                    </Frame>
+                </xct:TabViewItem>
+                <xct:TabViewItem
+                    Icon="pluspill.png"
+                    ControlTemplate="{StaticResource FabTabItemTemplate}"/>
+                <xct:TabViewItem
+                    Icon="meds.png"
+                    ControlTemplate="{StaticResource TabItemTemplate}">
+                    <Grid RowSpacing="0">
+                        <Frame>
+                            <Frame.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                    <GradientStop Color="#00a2f5" Offset="0.1"/>
+                                    <GradientStop Color="#0c68f5" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Frame.Background>
+                            <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" Margin="0,0,0,7">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button  x:Name="Currentmonthofview"
+                                        Text="{Binding Currentmonthofview}"
+                                        CornerRadius="36"
+                                        FontSize="18"
+                                        TextColor="White"
+                                        FontAttributes="Bold"
+                                        Clicked="viewallcalendar_Clicked_1"
+                                        HorizontalOptions="CenterAndExpand"
+                                        VerticalOptions="CenterAndExpand"
+                                        BackgroundColor="#0c68f5"
+                                        Grid.Row="0"
+                                        Grid.Column="1">
+                                    </Button>
+                                    <DatePicker Format="D"
+                                                DateSelected="datapicker_DateSelected"
+                                                IsVisible="false"
+                                                x:Name="datapicker">
+                                    </DatePicker>
+                                </Grid>
+
+                                <Grid Grid.Row="1" InputTransparent="False">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                    <Grid.GestureRecognizers>
+                                        <SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped"/>
+                                        <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped"/>
+                                    </Grid.GestureRecognizers>
+                                    <Grid x:Name="Grid1" Grid.RowSpan="2" Grid.Column="0" BackgroundColor="Transparent" xct:CornerRadiusEffect.CornerRadius="15">
+                                            <Label 
+                                    Text="Пн" 
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    TextColor="White"
+                                    FontSize="20"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="StartAndExpand"
+                                    HorizontalOptions="CenterAndExpand"></Label>
+                                        <Label  
+                                    x:Name="DateforMonday"
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    TextColor="White"
+                                    FontSize="25"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="EndAndExpand"
+                                    HorizontalOptions="CenterAndExpand">
+                                        </Label>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer  Tapped="ForgotPasswordCommand" CommandParameter="DateforMonday"/>
+                                            <SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped"/>
+                                            <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped"/>
+                                        </Grid.GestureRecognizers>
+                                    </Grid>
+                                    <Grid x:Name="Grid2" Grid.RowSpan="2" Grid.Column="1" BackgroundColor="Transparent" xct:CornerRadiusEffect.CornerRadius="15">
+                                        <Label 
+                                    Text="Вт" 
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    TextColor="White"
+                                    FontSize="20"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="StartAndExpand"
+                                    HorizontalOptions="CenterAndExpand"></Label>
+                                        <Label  
+                                    x:Name="DateforTuesday"
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    TextColor="White"
+                                    FontSize="25"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="EndAndExpand"
+                                    HorizontalOptions="CenterAndExpand">
+                                        </Label>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer  Tapped="ForgotPasswordCommand" CommandParameter="DateforTuesday"/>
+                                            <SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped"/>
+                                            <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped"/>
+
+                                        </Grid.GestureRecognizers>
+                                    </Grid>
+                                    <Grid x:Name="Grid3" Grid.RowSpan="2" Grid.Column="2" BackgroundColor="Transparent" xct:CornerRadiusEffect.CornerRadius="15">
+                                        <Label 
+                                    Text="Ср" 
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    TextColor="White"
+                                    FontSize="20"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="StartAndExpand"
+                                    HorizontalOptions="CenterAndExpand"></Label>
+                                        <Label  
+                                    x:Name="DateforWednesday"
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    TextColor="White"
+                                    FontSize="25"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="EndAndExpand"
+                                    HorizontalOptions="CenterAndExpand">
+                                        </Label>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer  Tapped="ForgotPasswordCommand" CommandParameter="DateforWednesday"/>
+                                            <SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped"/>
+                                            <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped"/>
+                                        </Grid.GestureRecognizers>
+                                    </Grid>
+                                    <Grid x:Name="Grid4" Grid.RowSpan="2" Grid.Column="3" BackgroundColor="Transparent" xct:CornerRadiusEffect.CornerRadius="15">
+                                        <Label 
+                                    Text="Чт" 
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    TextColor="White"
+                                    FontSize="20"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="StartAndExpand"
+                                    HorizontalOptions="CenterAndExpand"></Label>
+                                        <Label  
+                                    x:Name="DateforThursday"
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    TextColor="White"
+                                    FontSize="25"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="EndAndExpand"
+                                    HorizontalOptions="CenterAndExpand">
+                                        </Label>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer  Tapped="ForgotPasswordCommand" CommandParameter="DateforThursday"/>
+                                            <SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped"/>
+                                            <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped"/>
+                                        </Grid.GestureRecognizers>
+                                    </Grid>
+                                    <Grid x:Name="Grid5" Grid.RowSpan="2" Grid.Column="4" BackgroundColor="Transparent" xct:CornerRadiusEffect.CornerRadius="15">
+                                        <Label 
+                                    Text="Пт" 
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    TextColor="White"
+                                    FontSize="20"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="StartAndExpand"
+                                    HorizontalOptions="CenterAndExpand"></Label>
+                                        <Label  
+                                    x:Name="DateforFriday"
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    TextColor="White"
+                                    FontSize="25"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="EndAndExpand"
+                                    HorizontalOptions="CenterAndExpand">
+                                        </Label>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer  Tapped="ForgotPasswordCommand" CommandParameter="DateforFriday"/>
+                                            <SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped"/>
+                                            <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped"/>
+                                        </Grid.GestureRecognizers>
+                                    </Grid>
+                                    <Grid x:Name="Grid6" Grid.RowSpan="2" Grid.Column="5" BackgroundColor="Transparent" xct:CornerRadiusEffect.CornerRadius="15">
+                                        <Label 
+                                    Text="Сб" 
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    TextColor="White"
+                                    FontSize="20"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="StartAndExpand"
+                                    HorizontalOptions="CenterAndExpand"></Label>
+                                        <Label  
+                                    x:Name="DateforSaturday"
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    TextColor="White"
+                                    FontSize="25"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="EndAndExpand"
+                                    HorizontalOptions="CenterAndExpand">
+                                        </Label>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer  Tapped="ForgotPasswordCommand" CommandParameter="DateforSaturday"/>
+                                            <SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped"/>
+                                            <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped"/>
+                                        </Grid.GestureRecognizers>
+                                    </Grid>
+                                    <Grid x:Name="Grid7" Grid.RowSpan="2" Grid.Column="6" BackgroundColor="Transparent" xct:CornerRadiusEffect.CornerRadius="15">
+                                        <Label 
+                                    Text="Вс" 
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    TextColor="White"
+                                    FontSize="20"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="StartAndExpand"
+                                    HorizontalOptions="CenterAndExpand"></Label>
+                                        <Label  
+                                    x:Name="DateforSunday"
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    TextColor="White"
+                                    FontSize="25"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="EndAndExpand"
+                                    HorizontalOptions="CenterAndExpand">
+                                        </Label>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer  Tapped="ForgotPasswordCommand" CommandParameter="DateforSunday"/>
+                                            <SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped"/>
+                                            <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped"/>
+                                        </Grid.GestureRecognizers>
+                                    </Grid>
+                            </Grid>
+                        </Grid>
+                        </Frame>
+                        <StackLayout 
+                            BackgroundColor="White"
+                            Grid.RowSpan="3"
+                            Grid.Row="1">
+                            <CollectionView x:Name="collectionviewfornotes"
+                                            Margin="20"
+                                            SelectionMode="Single"
+                                            SelectionChanged="collectionviewfornotes_SelectionChanged">
+                                <CollectionView.ItemsLayout>
+                                    <LinearItemsLayout Orientation="Vertical"
+                                                       ItemSpacing="10"/>
+                                </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid RowSpacing="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Label Text="{Binding Name_of_pill}"
+                                                   FontSize="24"
+                                                   TextColor="#fbb03b"
+                                                   FontAttributes="Bold"
+                                                   Grid.Column="0"
+                                                   VerticalOptions="StartAndExpand"
+                                                   HorizontalOptions="StartAndExpand"
+                                                   Grid.Row="0" />
+                                            <Label Text="{Binding dateTakeTime1}" 
+                                                   FontSize="24"
+                                                   TextColor="Black"
+                                                   FontAttributes="Bold"
+                                                   Grid.Column="1"
+                                                   Grid.RowSpan="2"
+                                                   VerticalOptions="StartAndExpand"
+                                                   HorizontalOptions="EndAndExpand"/>
+                                            <Label Text="{Binding Measure}"
+                                                   FontSize="24"
+                                                   TextColor="Black"
+                                                   Grid.Column="0"
+                                                   VerticalOptions="StartAndExpand"
+                                                   HorizontalOptions="StartAndExpand"
+                                                   Grid.Row="1" />
+                                            <Label Text="{Binding Description}"
+                                                   FontSize="24"
+                                                   TextColor="Black"
+                                                   Grid.Column="0"
+                                                   Grid.ColumnSpan="2"
+                                                   VerticalOptions="StartAndExpand"
+                                                   HorizontalOptions="StartAndExpand"
+                                                   Grid.Row="2" />
+                                            <BoxView Grid.Row="3" Grid.ColumnSpan="2" Color="#0c68f5" HeightRequest="1"  />
+                                        </Grid>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </StackLayout>
+                    </Grid>
+                </xct:TabViewItem>
+            </xct:TabView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

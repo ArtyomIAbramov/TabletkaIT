@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="tabletka2.Views.pillssearch"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <BoxView CornerRadius="0, 0, 52, 52" Grid.Row="0" Grid.RowSpan="2">
+                <BoxView.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#6D44FF"/>
+                        <GradientStop Color="#33C7B5"/>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView >
+            <Label Grid.Row="0" TextColor="White" FontSize="26" VerticalOptions="Center" FontFamily="ZametkaParletter.ttf" Text="Поиск таблеток"  HorizontalOptions="Center"/>
+            <Frame CornerRadius="20" BorderColor="Black" Padding="0,6,6,6" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  BackgroundColor="White" Margin="55,0,55,0" Grid.Row="1" IsClippedToBounds="True">
+                <SearchBar x:Name="searchbar" TextChanged="searchbar_TextChanged"   HeightRequest="40" HorizontalOptions="Start" Placeholder="Введите название таблетки" BackgroundColor="Transparent"/>
+            </Frame>
+            <CollectionView x:Name="collectionviewforpills"
+                                            Margin="20"
+                                            Grid.Row="2" Grid.RowSpan="5" 
+                                            SelectionMode="Single"
+                                            IsVisible="false"
+                                            IsEnabled="False"
+                                            BackgroundColor="Transparent"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"
+                                            SelectionChanged="collectionviewforpills_SelectionChanged">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical"
+                                                       ItemSpacing="20"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                        <Grid RowSpacing="0" HeightRequest="200" HorizontalOptions="Center" VerticalOptions="Center" Padding="8"  xct:ShadowEffect.Color="Black"  xct:ShadowEffect.OffsetX="4" xct:ShadowEffect.OffsetY="4" xct:ShadowEffect.Opacity="0.5" xct:ShadowEffect.Radius="5">
+                                <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding Photo}" Grid.Row="0"
+                                                  Grid.RowSpan="3"
+                                                   Grid.Column="0"
+                                                   Margin="10"
+                                                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                                                   BackgroundColor="Transparent"/>
+                            <Image Source="{Binding Photo_apteki}" Grid.Row="3"
+                                                   Grid.Column="0"
+                                                   HorizontalOptions="Fill" VerticalOptions="Fill"
+                                                   Margin="10"
+                                                   BackgroundColor="Transparent"/>
+                            <Label Text="{Binding Name_of_pill_in_search}"
+                                                   FontSize="24"
+                                                   TextColor="Black"
+                                                   FontAttributes="Bold"
+                                                   Grid.Column="1"
+                                                   Margin="0,10,0,0"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Start"
+                                                   Grid.Row="0" />
+                            <Grid Grid.Row="1" Grid.Column="1" ColumnSpacing="0">
+                                <Label Text="{Binding Price}" 
+                                                   FontSize="20"
+                                                   TextColor="Black"
+                                                   Grid.Row="0"
+                                                   Grid.Column="0"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Start"/>
+                                <Label Text="{Binding Dose}"
+                                                   FontSize="20"
+                                                   TextColor="Black"
+                                                   Grid.Column="1"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Start"
+                                                   Grid.Row="0"/>
+                            </Grid>
+                                <Label Text="{Binding Description_in_search}"
+                                                   FontSize="17"
+                                                   TextColor="Black"
+                                                   Grid.Column="1"
+                                                   Grid.RowSpan="2"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Start"
+                                                   Grid.Row="2" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            <CollectionView x:Name="collectionviewfornotes"
+                                            Margin="20"
+                            SelectionMode="Single"
+                                            Grid.Row="2" Grid.RowSpan="5" 
+                                            BackgroundColor="Transparent"
+                                            HorizontalOptions="Center"
+                            SelectionChanged="collectionviewfornotes_SelectionChanged"
+                                            VerticalOptions="Center">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                                                       ItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding Name_of_pill}"
+                                                   FontSize="24"
+                                                   TextColor="#fbb03b"
+                                                   FontAttributes="Bold"
+                                                   Grid.Column="0"
+                                                   VerticalOptions="StartAndExpand"
+                                                   HorizontalOptions="StartAndExpand"
+                                                   Grid.Row="0" />
+                            <Label Text="{Binding dateTakeTime1}" 
+                                                   FontSize="24"
+                                                   TextColor="Black"
+                                                   FontAttributes="Bold"
+                                                   Grid.Column="1"
+                                                   Grid.RowSpan="2"
+                                                   VerticalOptions="StartAndExpand"
+                                                   HorizontalOptions="EndAndExpand"/>
+                            <Label Text="{Binding Measure}"
+                                                   FontSize="24"
+                                                   TextColor="Black"
+                                                   Grid.Column="0"
+                                                   VerticalOptions="StartAndExpand"
+                                                   HorizontalOptions="StartAndExpand"
+                                                   Grid.Row="1" />
+                            <Label Text="{Binding Description}"
+                                                   FontSize="24"
+                                                   TextColor="Black"
+                                                   Grid.Column="0"
+                                                   Grid.ColumnSpan="2"
+                                                   VerticalOptions="StartAndExpand"
+                                                   HorizontalOptions="StartAndExpand"
+                                                   Grid.Row="2" />
+                            <BoxView Grid.Row="3" Grid.ColumnSpan="2" Color="#0c68f5" HeightRequest="1"  />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

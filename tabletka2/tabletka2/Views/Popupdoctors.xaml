@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<rg:PopupPage
+    x:Class="tabletka2.Views.Popupdoctors"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:rg="http://rotorgames.com"
+    HasSystemPadding="False">
+    <rg:PopupPage.Animation>
+        <rg:ScaleAnimation
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8" />
+    </rg:PopupPage.Animation>
+    <Frame Margin="20" HorizontalOptions="Center" VerticalOptions="Start" CornerRadius="20" >
+        <Frame.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#00a2f5" Offset="0.1"/>
+                <GradientStop Color="#0c68f5" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Frame.Background>
+        <StackLayout BackgroundColor="Transparent">
+            <Grid RowSpacing="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Entry Placeholder="Специальность врача"
+                       PlaceholderColor="White"
+                   TextColor="White"
+                   x:Name="Name_of_doctor"
+                   Grid.Row="0"
+                   FontSize="20"
+                   HorizontalOptions="CenterAndExpand"
+                   Text="{Binding Name_of_doctor}"/>
+                <Entry Placeholder="Дата приёма"
+                       PlaceholderColor="White"
+                   TextColor="White"
+                   x:Name="Meeting_day"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   FontSize="20"
+                   HorizontalOptions="StartAndExpand"
+                   Text="{Binding Meeting_day}"/>
+                <Entry Placeholder="Время приёма"
+                   PlaceholderColor="White"
+                   TextColor="White"
+                   x:Name="Meeting_time"
+                   Grid.Row="2"
+                   Grid.Column="0"
+                   FontSize="20"
+                   HorizontalOptions="StartAndExpand"
+                   Text="{Binding Meeting_time}"/>
+                <ImageButton
+                        InputTransparent="false"
+                        Source="calendar.png"
+                        HeightRequest="24"
+                        Grid.Row="1"
+                        BackgroundColor="Transparent"
+                        CornerRadius="60"
+                        Clicked="Datapicker"
+                        Grid.Column="1"
+                        WidthRequest="24"/>
+                <ImageButton
+                        InputTransparent="false"
+                        Source="timer.png"
+                        HeightRequest="35"
+                        Grid.Row="2"
+                        BackgroundColor="Transparent"
+                        CornerRadius="60"
+                        Clicked="AddnewTime_Clicked"
+                        Grid.Column="1"
+                        WidthRequest="35"/>
+                <DatePicker IsVisible="false"  Grid.Row="2"  Grid.Column="2"  x:Name="datapciker" PropertyChanged="datapciker_PropertyChanged" TextColor="White" BackgroundColor="Transparent"/>
+                <TimePicker IsVisible="false"  PropertyChanged="timePicker_PropertyChanged"    Grid.Row="1" Grid.Column="2" Time="00:00" x:Name="timePicker1" Format="HH:mm" TextColor="White" BackgroundColor="Transparent"/>
+            </Grid>
+            <Grid ColumnDefinitions="Auto,Auto">
+                <Button Text="Сохранить"
+                        BackgroundColor="White"
+                        TextColor="#0c68f5"
+                        CornerRadius="15"
+                        HorizontalOptions="StartAndExpand"
+                        Clicked="SaveButton_Clicked"/>
+                <Button Grid.Column="2"
+                        Text="Удалить"
+                        BackgroundColor="White"
+                        TextColor="#0c68f5"
+                        CornerRadius="15"
+                        HorizontalOptions="EndAndExpand"
+                        Clicked="DeleteButton_Clicked"/>
+
+            </Grid>
+        </StackLayout>
+    </Frame>
+</rg:PopupPage>
+    
