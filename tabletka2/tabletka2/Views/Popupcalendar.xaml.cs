@@ -32,6 +32,7 @@ namespace tabletka2.Views
                 ParseToTimeSpan(note.dateTakeTime1);
             }
             notificationManager = DependencyService.Get<INotificationManager>();
+            
         }
         public Popupcalendar(Note note, CollectionView collection1)
         {
@@ -196,11 +197,27 @@ namespace tabletka2.Views
         }
         private void reload()
         {
-            var template = new DataTemplate(typeof(TextCell));
-            template.SetValue(TextCell.TextColorProperty, Color.White);
-            template.SetBinding(TextCell.TextProperty, ".");
-            collectionviewfortime.ItemTemplate = template;
+            //var template = new DataTemplate(typeof(ViewCell));
+            //template.SetValue(TextCell.TextColorProperty, Color.White);
+            //template.SetBinding(TextCell.TextProperty, ".");
+            //collectionviewfortime.ItemTemplate = template;
+
+            collectionviewfortime.ItemTemplate = new DataTemplate(() =>
+            {
+                Label nameLabel = new Label();
+                nameLabel.TextColor = Color.White;
+                nameLabel.FontSize = 16;
+                nameLabel.SetBinding(Label.TextProperty, ".");
+
+                return new ViewCell
+                {
+                    View = nameLabel
+                };
+            });
         }
+
+
+
         private void collectionviewfortime_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             Items.Remove((TimeSpan)collectionviewfortime.SelectedItem);

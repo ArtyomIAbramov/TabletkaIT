@@ -16,7 +16,7 @@
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <application android:label="tabletka" android:theme="@style/MainTheme" android:name="androidx.multidex.MultiDexApplication" android:allowBackup="true" android:icon="@drawable/iconapp" android:extractNativeLibs="true">
     <receiver android:enabled="true" android:label="Local Notifications Broadcast Receiver" android:name="crc6400e80f505e52909f.AlarmHandler" />
-    <activity android:configChanges="orientation|smallestScreenSize|screenLayout|screenSize|uiMode" android:icon="@drawable/iconapp" android:label="Таблетка" android:theme="@style/MainTheme" android:name="crc6400e80f505e52909f.MainActivity" android:exported="true">
+    <activity android:configChanges="orientation|smallestScreenSize|screenLayout|screenSize|uiMode" android:icon="@drawable/iconapp" android:label="Таблетка" android:launchMode="singleTop" android:theme="@style/MainTheme" android:name="crc6400e80f505e52909f.MainActivity" android:exported="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />

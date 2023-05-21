@@ -5,8 +5,11 @@ using Android.Graphics;
 using Android.OS;
 using AndroidX.Core.App;
 using Xamarin.Forms;
+using Java.Lang;
 using tabletka2.ViewModels;
 using AndroidApp = Android.App.Application;
+using Android.Widget;
+using tabletka2.Views;
 
 [assembly: Dependency(typeof(tabletka2.Droid.AndroidNotificationManager))]
 namespace tabletka2.Droid
@@ -53,7 +56,6 @@ namespace tabletka2.Droid
                 Intent intent = new Intent(AndroidApp.Context, typeof(AlarmHandler));
                 intent.PutExtra(TitleKey, title);
                 intent.PutExtra(MessageKey, message);
-
                 PendingIntent pendingIntent = PendingIntent.GetBroadcast(AndroidApp.Context, pendingIntentId++, intent, PendingIntentFlags.CancelCurrent);
                 long triggerTime = GetNotifyTime(notifyTime.Value);
                 AlarmManager alarmManager = AndroidApp.Context.GetSystemService(Context.AlarmService) as AlarmManager;
@@ -77,20 +79,21 @@ namespace tabletka2.Droid
 
         public void Show(string title, string message)
         {
+
+
+            //Intent intent = new Intent(AndroidApp.Context, typeof(MainActivity));
             Intent intent = new Intent(AndroidApp.Context, typeof(MainActivity));
             intent.PutExtra(TitleKey, title);
             intent.PutExtra(MessageKey, message);
-
             PendingIntent pendingIntent = PendingIntent.GetActivity(AndroidApp.Context, pendingIntentId++, intent, PendingIntentFlags.UpdateCurrent);
-
             NotificationCompat.Builder builder = new NotificationCompat.Builder(AndroidApp.Context, channelId)
                 .SetContentIntent(pendingIntent)
                 .SetContentTitle(title)
                 .SetContentText(message)
+                .SetAutoCancel(true)
                 .SetLargeIcon(BitmapFactory.DecodeResource(AndroidApp.Context.Resources, Resource.Drawable.iconapp))
                 .SetSmallIcon(Resource.Drawable.iconapp)
                 .SetDefaults((int)NotificationDefaults.Sound | (int)NotificationDefaults.Vibrate);
-
             Notification notification = builder.Build();
             manager.Notify(messageId++, notification);
         }

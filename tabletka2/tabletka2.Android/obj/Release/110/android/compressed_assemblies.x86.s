@@ -25,7 +25,7 @@
 
 	/* 2: Mono.Android.dll */
 	/* uncompressed_file_size */
-	.long	2338304
+	.long	2338816
 	/* loaded */
 	.byte	0
 	/* data */
@@ -448,7 +448,7 @@
 
 	/* 49: tabletka2.Android.dll */
 	/* uncompressed_file_size */
-	.long	479744
+	.long	480256
 	/* loaded */
 	.byte	0
 	/* data */
@@ -457,7 +457,7 @@
 
 	/* 50: tabletka2.dll */
 	/* uncompressed_file_size */
-	.long	710656
+	.long	728576
 	/* loaded */
 	.byte	0
 	/* data */

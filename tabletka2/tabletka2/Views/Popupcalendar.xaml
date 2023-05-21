@@ -3,7 +3,7 @@
     x:Class="tabletka2.Views.Popupcalendar"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:rg="http://rotorgames.com"
+    xmlns:rg="http://rotorgames.com" xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     HasSystemPadding="False">
     <rg:PopupPage.Animation>
         <rg:ScaleAnimation
@@ -35,7 +35,7 @@
                    FontSize="18"
                    HorizontalOptions="Start"
                    Text="{Binding Name_of_pill}"/>
-                <Entry Placeholder="Количество дней приёма"
+                <Entry Placeholder="Кол-во дней приёма"
                        PlaceholderColor="White"
                    TextColor="White"
                    x:Name="Days_of_Take"
@@ -56,9 +56,10 @@
                         HorizontalOptions="Center"
                         Grid.Column="1" Grid.Row="0"
                         WidthRequest="35"/>
-                <Label Text="Время:" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" FontSize="18" Grid.Column="2" Grid.Row="0" TextColor="White" BackgroundColor="Transparent"/>
+                <Label Text="Время" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" FontSize="18" Grid.Column="2" Grid.Row="0" TextColor="White" BackgroundColor="Transparent"/>
                 <TimePicker IsVisible="false"  HorizontalOptions="Center" PropertyChanged="timePicker_PropertyChanged" Grid.Column="1" Time="00:00" Grid.Row="0" x:Name="timePicker" Format="HH:mm" TextColor="White" BackgroundColor="Transparent"/>
-                <ListView SeparatorColor="White"  ItemSelected="collectionviewfortime_ItemSelected" HorizontalOptions="Fill" VerticalOptions="Fill" x:Name="collectionviewfortime" Grid.RowSpan="2" Grid.Column="3" Grid.Row="0" />
+                <ListView SeparatorColor="White" ItemSelected="collectionviewfortime_ItemSelected" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" x:Name="collectionviewfortime" Grid.RowSpan="2" Grid.Column="3" Grid.Row="0" >
+                </ListView>
             </Grid>
             <Entry Placeholder="Доза"
                     x:Name="Measure"

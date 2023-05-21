@@ -11,10 +11,13 @@ using tabletka2.ViewModels;
 using Android.Provider;
 using System;
 using Android.Database;
+using Android.Content.Res;
+using tabletka2.Views;
 
 namespace tabletka2.Droid
 {
-    [Activity(Label = "Таблетка", Icon = "@drawable/iconapp", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
+    
+    [Activity(Label = "Таблетка", Icon = "@drawable/iconapp", LaunchMode = LaunchMode.SingleTop, Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         internal static MainActivity Instance { get; private set; }
@@ -25,7 +28,7 @@ namespace tabletka2.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("ru-RU");
-            LoadApplication(new App());
+            //LoadApplication(new App());
             CreateNotificationFromIntent(Intent);
             Instance = this;
         }
@@ -40,6 +43,11 @@ namespace tabletka2.Droid
                 string title = intent.GetStringExtra(AndroidNotificationManager.TitleKey);
                 string message = intent.GetStringExtra(AndroidNotificationManager.MessageKey);
                 DependencyService.Get<INotificationManager>().ReceiveNotification(title, message);
+                LoadApplication(new App("Took"));
+            }
+            else
+            {
+                LoadApplication(new App());
             }
         }
 

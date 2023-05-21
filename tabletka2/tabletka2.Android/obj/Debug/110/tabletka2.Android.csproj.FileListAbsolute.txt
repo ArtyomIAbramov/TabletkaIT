@@ -403,7 +403,6 @@ C:\Users\Q\source\repos\tabletka2\tabletka2\tabletka2.Android\obj\Debug\110\andr
 C:\Users\Q\source\repos\tabletka2\tabletka2\tabletka2.Android\obj\Debug\110\android\src\crc64720bb2db43a66fe9\TabbedPageRenderer.java
 C:\Users\Q\source\repos\tabletka2\tabletka2\tabletka2.Android\obj\Debug\110\android\src\crc64720bb2db43a66fe9\ViewRenderer_2.java
 C:\Users\Q\source\repos\tabletka2\tabletka2\tabletka2.Android\obj\Debug\110\android\src\crc64a0e0a82d0db9a07d\ActivityLifecycleContextListener.java
-C:\Users\Q\source\repos\tabletka2\tabletka2\tabletka2.Android\obj\Debug\110\android\src\crc64a0e0a82d0db9a07d\IntermediateActivity.java
 C:\Users\Q\source\repos\tabletka2\tabletka2\tabletka2.Android\obj\Debug\110\android\src\crc64ee486da937c010f4\ButtonRenderer.java
 C:\Users\Q\source\repos\tabletka2\tabletka2\tabletka2.Android\obj\Debug\110\android\src\crc64ee486da937c010f4\FrameRenderer.java
 C:\Users\Q\source\repos\tabletka2\tabletka2\tabletka2.Android\obj\Debug\110\android\src\crc64ee486da937c010f4\ImageRenderer.java
@@ -479,3 +478,7 @@ C:\Users\Q\source\repos\tabletka2\tabletka2\tabletka2.Android\obj\Debug\110\lp\7
 C:\Users\Q\source\repos\tabletka2\tabletka2\tabletka2.Android\obj\Debug\110\lp\74\jl\files.cache
 C:\Users\Q\source\repos\tabletka2\tabletka2\tabletka2.Android\obj\Debug\110\lp\78\jl\files.cache
 C:\Users\Q\source\repos\tabletka2\tabletka2\tabletka2.Android\obj\Debug\110\lp\79\jl\files.cache
+C:\Users\Q\source\repos\tabletka2\tabletka2\tabletka2.Android\obj\Debug\110\res\drawable\group49.png
+C:\Users\Q\source\repos\tabletka2\tabletka2\tabletka2.Android\obj\Debug\110\res\drawable\group48.png
+C:\Users\Q\source\repos\tabletka2\tabletka2\tabletka2.Android\obj\Debug\110\res\drawable\group50.png
+C:\Users\Q\source\repos\tabletka2\tabletka2\tabletka2.Android\obj\Debug\110\android\src\crc64a0e0a82d0db9a07d\IntermediateActivity.java

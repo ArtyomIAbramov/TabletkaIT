@@ -24,7 +24,7 @@
     -->
   <application android:name="androidx.multidex.MultiDexApplication" android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="true" android:icon="@drawable/iconapp" android:label="tabletka" android:theme="@style/MainTheme">
     <receiver android:name="crc6400e80f505e52909f.AlarmHandler" android:enabled="true" android:label="Local Notifications Broadcast Receiver" />
-    <activity android:name="crc6400e80f505e52909f.MainActivity" android:configChanges="orientation|smallestScreenSize|screenLayout|screenSize|uiMode" android:exported="true" android:icon="@drawable/iconapp" android:label="Таблетка" android:theme="@style/MainTheme">
+    <activity android:name="crc6400e80f505e52909f.MainActivity" android:configChanges="orientation|smallestScreenSize|screenLayout|screenSize|uiMode" android:exported="true" android:icon="@drawable/iconapp" android:label="Таблетка" android:launchMode="singleTop" android:theme="@style/MainTheme">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />

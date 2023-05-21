@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="tabletka2.Views.privetstvie">
+  <!--Pages can be added as references or inline-->
+    <ContentPage Appearing="ContentPage_Appearing_1" BackgroundColor="White">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Image  x:Name="firstimage" Grid.Row="0" Grid.RowSpan="3" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Source="Group50.png"/>
+            <Grid Grid.Row="3" Grid.RowSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontFamily="ZametkaParletter.ttf" TextColor="#3B4A5C" Text="Настраивай профиль!" FontAttributes="Bold" FontSize="24" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"/>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" FontFamily="SegoeUI.ttf"  Text="Сохраняйте свои данные" TextColor="#86919F" FontSize="16" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"/>
+                    <Label Grid.Row="1" FontFamily="SegoeUI.ttf"  Text="Добавляйте фотографию" TextColor="#86919F" FontSize="16" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"/>
+                </Grid>
+                <BoxView Grid.Row="2" CornerRadius="36" Margin="0,0,100,0" HeightRequest="15" WidthRequest="15" Color="#0c68f5" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                <BoxView Grid.Row="2" CornerRadius="36" HeightRequest="15" WidthRequest="15" Color="#D9D9D9" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                <BoxView Grid.Row="2" CornerRadius="36" Margin="100,0,0,0" HeightRequest="15" WidthRequest="15" Color="#D9D9D9" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            </Grid>
+        </Grid>
+    </ContentPage>
+    <ContentPage Appearing="ContentPage_Appearing" BackgroundColor="White">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Image  x:Name="secondimage" Grid.Row="0" Grid.RowSpan="3" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Source="Group48.png"/>
+            <Grid Grid.Row="3" Grid.RowSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontFamily="ZametkaParletter.ttf" TextColor="#3B4A5C" Text="Поиск лекарств!" FontAttributes="Bold" FontSize="24" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"/>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" FontFamily="SegoeUI.ttf"  Text="Найдите лекарства в один миг" TextColor="#86919F" FontSize="16" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"/>
+                    <Label Grid.Row="1" FontFamily="SegoeUI.ttf"  Text="Выбирайте дешевле" TextColor="#86919F" FontSize="16" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"/>
+                </Grid>
+                <BoxView Grid.Row="2" CornerRadius="36" Margin="0,0,100,0" HeightRequest="15" WidthRequest="15" Color="#D9D9D9" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                <BoxView Grid.Row="2" CornerRadius="36" HeightRequest="15" WidthRequest="15" Color="#0c68f5" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                <BoxView Grid.Row="2" CornerRadius="36" Margin="100,0,0,0" HeightRequest="15" WidthRequest="15" Color="#D9D9D9" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            </Grid>
+        </Grid>
+    </ContentPage>
+    <ContentPage BackgroundColor="White" Appearing="ContentPage_Appearing_2">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Image  x:Name="thirdimage" Grid.Row="0" Grid.RowSpan="3" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Source="Group49.png"/>
+            <Grid Grid.Row="3" Grid.RowSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontFamily="ZametkaParletter.ttf" TextColor="#3B4A5C" Text="График приёма!" FontAttributes="Bold" FontSize="24" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"/>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" FontFamily="SegoeUI.ttf"  Text="Создайте сразу весь курс приёма" TextColor="#86919F" FontSize="16" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"/>
+                    <Label Grid.Row="1" FontFamily="SegoeUI.ttf"  Text="Добавьте заметки о посещении врача" TextColor="#86919F" FontSize="16" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"/>
+                </Grid>
+                <Button Grid.Row="2" Clicked="Button_Clicked" TextColor="#0c68f5" FontFamily="SegoeUI.ttf" HeightRequest="45"  VerticalOptions="CenterAndExpand" FontSize="16" FontAttributes="Bold" CornerRadius="20" HorizontalOptions="CenterAndExpand" BackgroundColor="White"  BorderColor="#0c68f5" BorderWidth="1" Text="    Начать    "/>
+                <BoxView Grid.Row="3" CornerRadius="36" Margin="0,0,100,0" HeightRequest="15" WidthRequest="15" Color="#D9D9D9" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                <BoxView Grid.Row="3" CornerRadius="36" HeightRequest="15" WidthRequest="15" Color="#D9D9D9" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                <BoxView Grid.Row="3" CornerRadius="36" Margin="100,0,0,0" HeightRequest="15" WidthRequest="15" Color="#0c68f5" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            </Grid>
+        </Grid>
+    </ContentPage>
+</CarouselPage>

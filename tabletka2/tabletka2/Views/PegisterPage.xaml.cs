@@ -42,7 +42,7 @@ namespace tabletka2.Views
                         if (!string.IsNullOrEmpty(Userpasswordagain.Text) && Userpasswordagain.Text== Userpassword.Text)
                         {
                             SerializeXML(user);
-                            Navigation.PushAsync(new Login());
+                            Navigation.PushAsync(new privetstvie());
                        
                         }
                         else

@@ -421,5 +421,10 @@ namespace tabletka2.Views
         {
             Navigation.PushAsync(new pillssearch());
         }
+
+        private void Logout_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Login());
+        }
     }
 }

@@ -40,15 +40,32 @@ namespace tabletka2
                 return database;
             }
         }
-
+        readonly string y;
         public App()
         {
             InitializeComponent();
         }
+        public App(string t)
+        {
+            y = t;
+            InitializeComponent();
+        }
         protected override void OnStart()
         {
-            MainPage = new NavigationPage(new Login());
+            if(y=="Took")
+            {
+                MainPage = new NavigationPage(new Took());
+            }
+            else
+            {
+                MainPage = new NavigationPage(new Calendari());
+            }
+            //MainPage = new NavigationPage(new privetstvie());
+            //MainPage = new privetstvie();
+            //MainPage = new NavigationPage(new Login());
+            //MainPage = new NavigationPage(new Calendari());
         }
+
 
         protected override void OnSleep()
         {
