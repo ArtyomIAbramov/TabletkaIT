@@ -1,12 +1,17 @@
 ﻿using System;
 using System.IO;
+using System.Text.RegularExpressions;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Xml.Serialization;
 using tabletka2.Data;
+using Telegram.Bot;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace tabletka2.Views
 {
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PegisterPage : ContentPage
     {
@@ -41,6 +46,8 @@ namespace tabletka2.Views
                         user.userpassword = Userpassword.Text.Trim(Environment.NewLine.ToCharArray());
                         if (!string.IsNullOrEmpty(Userpasswordagain.Text) && Userpasswordagain.Text== Userpassword.Text)
                         {
+
+                            user.ID = Regex.Replace(Convert.ToBase64String(Guid.NewGuid().ToByteArray()), "[/+=]", "");
                             SerializeXML(user);
                             Navigation.PushAsync(new privetstvie());
                        

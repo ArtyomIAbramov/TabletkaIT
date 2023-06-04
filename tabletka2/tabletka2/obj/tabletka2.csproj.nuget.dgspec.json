@@ -53,9 +53,17 @@
               "version": "[2.0.3, )",
               "autoReferenced": true
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
             "Rg.Plugins.Popup": {
               "target": "Package",
               "version": "[2.1.0, )"
+            },
+            "Telegram.Bot": {
+              "target": "Package",
+              "version": "[19.0.0, )"
             },
             "Xamarin.CommunityToolkit": {
               "target": "Package",
@@ -72,6 +80,10 @@
             "Xamarin.Forms.PancakeView": {
               "target": "Package",
               "version": "[2.3.0.759, )"
+            },
+            "Xamarin.Plugins.Clipboard": {
+              "target": "Package",
+              "version": "[2.3.0, )"
             },
             "sqlite-net-pcl": {
               "target": "Package",

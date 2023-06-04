@@ -7,8 +7,8 @@
     HasSystemPadding="False">
     <rg:PopupPage.Animation>
         <rg:ScaleAnimation
-            DurationIn="400"
-            DurationOut="300"
+            DurationIn="0"
+            DurationOut="0"
             EasingIn="SinOut"
             EasingOut="SinIn"
             HasBackgroundAnimation="True"

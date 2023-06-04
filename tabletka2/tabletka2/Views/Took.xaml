@@ -1,12 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="White"
+              NavigationPage.HasNavigationBar="False"
              x:Class="tabletka2.Views.Took">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image x:Name="imagedone"  Grid.Row="0" Grid.RowSpan="3" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Source="checked.png"/>
+        <Grid Grid.Row="3" Grid.RowSpan="2" x:Name="Gridforbinding">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+                <Label Grid.Row="0" x:Name="name_of_pill" FontFamily="ZametkaParletter.ttf" TextColor="#3B4A5C" Text="{Binding name_of_pill}" FontAttributes="Bold" FontSize="24" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"/>
+                <Label Grid.Row="1" FontFamily="SegoeUI.ttf"  Text='С "Таблеткой" всегда вовремя!' TextColor="#86919F" FontSize="16" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"/>
+                <Button Clicked="Button_Clicked" Grid.Row="2" TextColor="#0c68f5" FontFamily="SegoeUI.ttf" HeightRequest="45"  VerticalOptions="CenterAndExpand" FontSize="16" FontAttributes="Bold" CornerRadius="20" HorizontalOptions="CenterAndExpand" BackgroundColor="White"  BorderColor="#0c68f5" BorderWidth="1" Text="    Спасибо    "/>
+        </Grid>
+    </Grid>
+        </ContentPage.Content>
+</ContentPage>  

@@ -4,6 +4,8 @@ using tabletka2.Views;
 using Xamarin.Forms;
 using System.Reflection;
 using tabletka2.Data;
+using Android.Content;
+using tabletka2.ViewModels;
 
 namespace tabletka2
 {
@@ -40,32 +42,35 @@ namespace tabletka2
                 return database;
             }
         }
-        readonly string y;
+        string check_is_took;
+        string title;
         public App()
         {
             InitializeComponent();
+
         }
-        public App(string t)
+        public App(string t, string title)
         {
-            y = t;
+            check_is_took = t;
+            this.title = title;
             InitializeComponent();
         }
         protected override void OnStart()
         {
-            if(y=="Took")
+            if (check_is_took == "Took")
             {
-                MainPage = new NavigationPage(new Took());
+                MainPage = new NavigationPage(new Took(this.title));
+                check_is_took = null;
             }
             else
             {
-                MainPage = new NavigationPage(new Calendari());
+                MainPage = new NavigationPage(new Login());
             }
-            //MainPage = new NavigationPage(new privetstvie());
-            //MainPage = new privetstvie();
-            //MainPage = new NavigationPage(new Login());
-            //MainPage = new NavigationPage(new Calendari());
         }
-
+        public void CreateNotificationFromIntent1(Intent intent, string title)
+        {
+            Current.MainPage = new NavigationPage(new Took(title));
+        }
 
         protected override void OnSleep()
         {

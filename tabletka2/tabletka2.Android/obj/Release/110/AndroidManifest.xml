@@ -14,6 +14,7 @@
   <uses-feature android:name="android.hardware.camera" android:required="true" />
   <uses-feature android:name="android.hardware.camera.autofocus" android:required="true" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
   <application android:label="tabletka" android:theme="@style/MainTheme" android:name="androidx.multidex.MultiDexApplication" android:allowBackup="true" android:icon="@drawable/iconapp" android:extractNativeLibs="true">
     <receiver android:enabled="true" android:label="Local Notifications Broadcast Receiver" android:name="crc6400e80f505e52909f.AlarmHandler" />
     <activity android:configChanges="orientation|smallestScreenSize|screenLayout|screenSize|uiMode" android:icon="@drawable/iconapp" android:label="Таблетка" android:launchMode="singleTop" android:theme="@style/MainTheme" android:name="crc6400e80f505e52909f.MainActivity" android:exported="true">

@@ -33,4 +33,5 @@ C:\Users\Q\source\repos\tabletka2\tabletka2\tabletka2\obj\Release\netstandard2.0
 C:\Users\Q\source\repos\tabletka2\tabletka2\tabletka2\obj\Release\netstandard2.0\ref\tabletka2.dll
 C:\Users\Q\source\repos\tabletka2\tabletka2\tabletka2\obj\Release\netstandard2.0\tabletka2.pdb
 C:\Users\Q\source\repos\tabletka2\tabletka2\tabletka2\obj\Release\netstandard2.0\Views\Took.xaml.g.cs
+C:\Users\Q\source\repos\tabletka2\tabletka2\tabletka2\obj\Release\netstandard2.0\Views\IdishkaPage.xaml.g.cs
 C:\Users\Q\source\repos\tabletka2\tabletka2\tabletka2\obj\Release\netstandard2.0\tabletka2.csproj.AssemblyReference.cache

@@ -37,7 +37,6 @@ namespace tabletka2.Views
             Foraddnewnote = currdateTime.Date;
             int day = ((int)DateTime.Now.DayOfWeek + 6) % 7 + 1;
             ChangeBackColorToPurple("Grid" + day);
-            //notesDB.ClearNotesoutofdate(DateTime.Now.AddDays(-1));
             grid = "Grid" + day;
             Changeweek(0);
             EntryName.IsReadOnly = true;
@@ -425,6 +424,11 @@ namespace tabletka2.Views
         private void Logout_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Login());
+        }
+
+        private void Id_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushPopupAsync(new IdishkaPage());
         }
     }
 }

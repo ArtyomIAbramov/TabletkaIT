@@ -4,6 +4,10 @@ public class MonoPackageManager_Resources {
 		/* We need to ensure that "tabletka2.Android.dll" comes first in this list. */
 		"tabletka2.Android.dll",
 		"FormsViewGroup.dll",
+		"Hangfire.Core.dll",
+		"Newtonsoft.Json.dll",
+		"Plugin.Clipboard.Abstractions.dll",
+		"Plugin.Clipboard.dll",
 		"Rg.Plugins.Popup.dll",
 		"SQLite-net.dll",
 		"SQLitePCLRaw.batteries_v2.dll",
@@ -11,6 +15,7 @@ public class MonoPackageManager_Resources {
 		"SQLitePCLRaw.lib.e_sqlite3.android.dll",
 		"SQLitePCLRaw.provider.e_sqlite3.dll",
 		"tabletka2.dll",
+		"Telegram.Bot.dll",
 		"Xamarin.AndroidX.Activity.dll",
 		"Xamarin.AndroidX.AppCompat.AppCompatResources.dll",
 		"Xamarin.AndroidX.AppCompat.dll",
